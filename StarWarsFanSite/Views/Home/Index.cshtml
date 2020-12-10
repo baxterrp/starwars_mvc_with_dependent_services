@@ -1,0 +1,30 @@
+﻿@model IEnumerable<StarWarsFanSite.Entities.Film>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form>
+    <ul>
+
+        @foreach (var film in Model)
+        {
+            <ul>
+                <li>@film.Title : Episode @film.Episode</li>
+                <li>Directed By @film.Director</li>
+                <li>Released @film.ReleaseDate</li>
+                <li>
+                    Characters
+                    <ul>
+                        @foreach (var character in film.Characters)
+                        {
+                            <li>@character.Id</li>
+                            <li>@character.Name</li>
+                            <input type="checkbox" />
+                        }
+                    </ul>
+                </li>
+            </ul>
+        }
+    </ul>
+</form>
